@@ -34,9 +34,9 @@ function EditTask({ task, fetchTasks, closeModal }) {
 
     try {
       await axios.put(
-        "`${import.meta.env.VITE_API_URL}/update/`" + task._id,
-        formData
-      );
+  `${import.meta.env.VITE_API_URL}/update/${task._id}`,
+  formData
+);
 
       fetchTasks();
       closeModal();
