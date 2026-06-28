@@ -15,7 +15,7 @@ function Home() {
   // Fetch Tasks
   const fetchTasks = async () => {
     try {
-      const result = await axios.get("`${import.meta.env.VITE_API_URL}/get`");
+      const result = await axios.get(`${import.meta.env.VITE_API_URL}/get`);
       setTodos(result.data);
     } catch (err) {
       console.log(err);
@@ -45,7 +45,9 @@ function Home() {
   // Confirm Delete
   const confirmDelete = async () => {
     try {
-      await axios.delete("`${import.meta.env.VITE_API_URL}/delete/`" + taskToDelete._id);
+      await axios.delete(
+  `${import.meta.env.VITE_API_URL}/delete/${taskToDelete._id}`
+);
       fetchTasks();
       setShowDeleteModal(false);
       setTaskToDelete(null);
@@ -73,10 +75,13 @@ function Home() {
     }
 
     try {
-      await axios.put("`${import.meta.env.VITE_API_URL}/update/`" + todo._id, {
-        ...todo,
-        status: nextStatus,
-      });
+     await axios.put(
+  `${import.meta.env.VITE_API_URL}/update/${todo._id}`,
+  {
+    ...todo,
+    status: nextStatus,
+  }
+);
 
       fetchTasks();
     } catch (err) {
