@@ -35,7 +35,7 @@ function Create({ fetchTasks }) {
 
     try {
       await axios.post(
-        "http://localhost:3001/add",
+        "`${import.meta.env.VITE_API_URL}/add`",
         formData
       );
 
