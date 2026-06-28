@@ -34,7 +34,7 @@ function EditTask({ task, fetchTasks, closeModal }) {
 
     try {
       await axios.put(
-        "http://localhost:3001/update/" + task._id,
+        "`${import.meta.env.VITE_API_URL}/update/`" + task._id,
         formData
       );
 
